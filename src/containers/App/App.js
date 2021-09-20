@@ -1,11 +1,16 @@
-import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import UserRegisterContainer from "../User/UserRegisterContainer";
+import UserLoginContainer from "../User/UserLoginContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>AFFIRMATIONS UI</h1>
-    </div>
-  );
+    return (
+        <Router>
+            <main>
+                <Route path={'/user/register'} exact component={UserRegisterContainer}/>
+                <Route path={'/user/login'} exact component={UserLoginContainer}/>
+            </main>
+        </Router>
+    );
 }
 
 export default App;
