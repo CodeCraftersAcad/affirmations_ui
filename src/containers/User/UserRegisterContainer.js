@@ -1,6 +1,9 @@
 import {useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import {Form} from "react-bootstrap";
+import TextInputs from "../../components/TextInputs/TextInputs";
+import CheckInputs from "../../components/CheckInputs/CheckInputs";
+import Buttons from "../../components/Buttons/Buttons";
 
 const UserRegisterContainer = () => {
     const [showPremiumMembership, setShowPremiumMemberShip] = useState(false)
@@ -27,10 +30,11 @@ const UserRegisterContainer = () => {
 
     const handleUserInputChange = (event) => {
         const {name, value} = event.target;
-        setUser({...user, [name]: value})
+        setUser({ ...user, [name]: value })
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         console.log(user)
     }
 
@@ -42,61 +46,52 @@ const UserRegisterContainer = () => {
     return (
         <Layout>
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Full Name</Form.Label>
-                    <Form.Control type={'text'}
-                                  placeholder={'Jon Zen'}
-                                  name={'name'}
-                                  onChange={handleUserInputChange}
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type={'email'}
-                                  placeholder={'Jon.Zen@affirmations.com'}
-                                  name={'email'}
-                                  onChange={handleUserInputChange}
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>D.O.B.</Form.Label>
-                    <Form.Control type={'text'}
-                                  placeholder={'04/28/1999'}
-                                  name={'dob'}
-                                  onChange={handleUserInputChange}
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Membership</Form.Label>
-                    <Form.Control type={'text'}
-                                  placeholder={'04/28/1999'}
-                                  name={'dob'}
-                                  onChange={handleUserInputChange}
-                    />
-                </Form.Group>
-                    <h3>Membership</h3>
-                <Form.Group>
-                    <Form.Label>Sign Up for premium</Form.Label>
-                    <Form.Check type={'checkbox'} onChange={premiumMembershipShowInputs}/>
-                </Form.Group>
+                <TextInputs
+                    type={'text'}
+                    name={'name'}
+                    label={'Full Name'}
+                    placeholder={'Jon Zen'}
+                    onChange={handleUserInputChange}
+                />
+                <TextInputs
+                    type={'email'}
+                    name={'email'}
+                    label={'Email'}
+                    onChange={handleUserInputChange}
+                    placeholder={'Jon.Zen@affirmations.com'}
+                />
+                <TextInputs
+                    name={'dob'}
+                    type={'text'}
+                    label={'D.O.B.'}
+                    placeholder={'04/28/1999'}
+                    onChange={handleUserInputChange}
+                />
+                <h3>Membership</h3>
+                <CheckInputs
+                    type={'checkbox'}
+                    label={'Sign Up for premium'}
+                    onChange={premiumMembershipShowInputs}
+                />
                 {showPremiumMembership && (
                     <Form.Group>
                         <Form.Label>Payment Frequency</Form.Label>
                         {paymentFrequency.map((type) => (
-                            <div key={`inline-${type.value}`}>
-                                <Form.Check
-                                    inline
+                                <CheckInputs
                                     type={'radio'}
-                                    name={'paymentFrequency'}
-                                    onChange={handleUserInputChange}
-                                    id={`membership-${type.value}`}
                                     label={type.type}
                                     value={type.value}
+                                    name={'paymentFrequency'}
+                                    onChange={handleUserInputChange}
                                 />
-                            </div>
                         ))}
                     </Form.Group>
                 )}
+                <Buttons
+                    variant={'primary'}
+                    btnText={'REGISTER'}
+                    btnAlign={'text-end'}
+                />
             </Form>
         </Layout>
     );
