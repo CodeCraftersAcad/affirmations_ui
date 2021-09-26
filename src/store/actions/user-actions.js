@@ -8,7 +8,7 @@ import {
 } from "../constants/user-constants";
 import axios from 'axios'
 
-export const login = (username, password) =>  async dispatch => {
+export const loginUser = (userLoginInfo) =>  async dispatch => {
     try {
         dispatch({
             type: USER_LOGIN_REQUEST
@@ -19,7 +19,7 @@ export const login = (username, password) =>  async dispatch => {
                 'Content-Type': 'application/json'
             },
         }
-        const {data} = await axios.post('/auth/login', {username, password}, config)
+        const {data} = await axios.post('/auth/login', {userLoginInfo}, config)
 
         dispatch({
             type: USER_LOGIN_SUCCESS,
@@ -37,7 +37,8 @@ export const login = (username, password) =>  async dispatch => {
 }
 
 
-export const register = (name, username, email, password, dob, membership, notifications) =>  async dispatch => {
+export const registerNewUser = (user) =>  async dispatch => {
+    console.log(user)
     try {
         dispatch({
             type: USER_REGISTER_REQUEST
@@ -48,7 +49,7 @@ export const register = (name, username, email, password, dob, membership, notif
                 'Content-Type': 'application/json'
             },
         }
-        const {data} = await axios.post('/auth/register', {name, email, password, dob, membership, notifications}, config)
+        const {data} = await axios.post('/auth/register', {user}, config)
 
         dispatch({
             type: USER_REGISTER_SUCCESS,
