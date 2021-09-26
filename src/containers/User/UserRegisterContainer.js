@@ -13,16 +13,7 @@ const UserRegisterContainer = () => {
         name: '',
         email: '',
         password: '',
-        confirmPassword: '',
         username: '',
-        dob: '',
-        membershipType: 'basic',
-        paymentFrequency: '',
-        confirmSubscription: false,
-        notify: true,
-        frequency: 1,
-        days: [],
-        notifyByEmail: false
     })
 
     const handleUserInputChange = (event) => {
