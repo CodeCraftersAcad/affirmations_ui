@@ -1,9 +1,11 @@
 import { Button } from 'react-bootstrap';
 
-export default function Buttons({btnText, variant, btnAlign}) {
+export default function Buttons({btnText, variant, btnAlign, ...props}) {
     return (
-        <p className={btnAlign}>
-            <Button variant={variant}>{btnText}</Button>
-        </p>
+        <div className={btnAlign}>
+            <Button variant={variant}
+                    {...props}
+            >{btnText}</Button>
+        </div>
     )
 }

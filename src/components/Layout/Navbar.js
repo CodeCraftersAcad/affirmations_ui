@@ -1,10 +1,12 @@
-import {Navbar} from "react-bootstrap";
-
+import { useContext } from "react";
+import { Navbar } from "react-bootstrap";
+import AppContext from "../../store/AppContext";
 const Nav = () => {
+    const { user } = useContext(AppContext);
     return (
         <nav>
             <Navbar bg={'light'}>
-                <Navbar.Brand to={'/'}>Affirmations</Navbar.Brand>
+                <Navbar.Brand to={'/'}>{user && user.name? `HI ${user.name}!`:"Affirmations"}</Navbar.Brand>
             </Navbar>
         </nav>
     );
