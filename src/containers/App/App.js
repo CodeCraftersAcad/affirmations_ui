@@ -6,6 +6,7 @@ import UserLoginContainer from '../User/UserLoginContainer';
 import UserRegisterContainer from '../User/UserRegisterContainer';
 import Footer from '../../components/Layout/Footer';
 import Navbar from '../../components/Layout/Navbar';
+import AddQuotes from '../AddQuotes/AddQuotes';
 // context
 import AppContext from '../../store/AppContext';
 
@@ -26,7 +27,8 @@ function App() {
         <Navbar/>
         <Switch>
           <Route path={'/user/register'} exact component={UserRegisterContainer}/>
-          <Route path={'/user/login'} exact component={UserLoginContainer}/>
+          <Route path={'/user/login'} exact component={UserLoginContainer} />
+          <Route path={'/user/quotes'} exact component={AddQuotes} />
         </Switch>
         <Footer/>
       </AppContext.Provider>
