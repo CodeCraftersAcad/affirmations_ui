@@ -1,21 +1,39 @@
 import axios from 'axios';
-
 const API = {
-    postRegister: function (user) {
-        return axios.post('/auth/register', { user });
+    postRegister: async (user) => {
+        try {
+            return await axios.post('/auth/register', { user });
+        } catch (err) {
+            console.log(err);
+        }
     },
-    postLogin: function (userLoginInfo) {
-        return axios.post('/auth/login', { userLoginInfo });
+    postLogin: async (userLoginInfo) => {
+        try {
+            return await axios.post('/auth/login', { userLoginInfo });
+        } catch (err) {
+            console.log(err);
+        }
     },
-    postAddNewQuote: function (quoteInfo,jwt) {
-        return axios.post('/quotes', {
+    postAddNewQuote: async (quoteInfo, jwt) => {
+        const config = {
             headers: {
-                'authorization': `Bearer ${jwt}`
-            },
-            ...quoteInfo
-        });
-
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${jwt}`
+            }
+        }
+        try {
+            return await axios.post('/quotes', quoteInfo, config);
+        } catch (err) {
+            console.log(err)
+        }
     },
+    getUserQuotesById: (id) => {
+        try {
+            return axios.get(`/user/${id}`);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 };
 
 export default API;

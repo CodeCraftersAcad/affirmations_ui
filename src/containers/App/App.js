@@ -24,13 +24,14 @@ function App() {
   return (
     <Router>
       <AppContext.Provider value={{ user, setUser, jwt, setJwt }}>
-        <Navbar/>
+        <Navbar />
         <Switch>
-          <Route path={'/user/register'} exact component={UserRegisterContainer}/>
+          <Route path={'/user/register'} exact component={UserRegisterContainer} />
           <Route path={'/user/login'} exact component={UserLoginContainer} />
           <Route path={'/user/quotes'} exact component={AddQuotes} />
+          <Route path={'/user/quotes/:userId'} exact component={AddQuotes} />
         </Switch>
-        <Footer/>
+        <Footer />
       </AppContext.Provider>
     </Router>
   );
