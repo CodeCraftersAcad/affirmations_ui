@@ -2,9 +2,11 @@ import React from 'react';
 
 const AppContext = React.createContext({
     jwt: "",
-    setJwt: function(){ },
+    setJwt: function () { },
     user: {},
     setUser: () => { },
+    quotes: [],
+    setQuotes: () => { },
 })
 
 export default AppContext;

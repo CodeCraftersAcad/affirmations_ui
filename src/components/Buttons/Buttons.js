@@ -1,10 +1,11 @@
+import React from 'react'
 import { Button } from 'react-bootstrap';
 
-export default function Buttons({btnText, variant, btnAlign, ...props}) {
+export default function Buttons({ btnText, variant, btnAlign, ...props }) {
     return (
         <div className={btnAlign}>
             <Button variant={variant}
-                    {...props}
+                {...props}
             >{btnText}</Button>
         </div>
     )

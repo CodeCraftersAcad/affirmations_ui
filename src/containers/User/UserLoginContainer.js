@@ -1,5 +1,6 @@
-import {useState, useContext} from "react";
-import {Form} from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router";
+import { Form } from "react-bootstrap";
 import TextInputs from "../../components/TextInputs/TextInputs";
 import Buttons from "../../components/Buttons/Buttons";
 // API
@@ -12,10 +13,10 @@ const UserLoginContainer = () => {
         password: '',
         username: '',
     })
-
+    const history = useHistory();
     const handleUserInputChange = (event) => {
-        const {name, value} = event.target;
-        setUserLoginInformation({...userLoginInformation, [name]: value})
+        const { name, value } = event.target;
+        setUserLoginInformation({ ...userLoginInformation, [name]: value })
     }
 
     const handleSubmit = async (e) => {
@@ -26,6 +27,7 @@ const UserLoginContainer = () => {
             localStorage.setItem("affirm_user", JSON.stringify({ ...response.data }));
             setJwt(response.data.token);
             setUser({ ...response.data });
+            history.push('/quotes')
         }
     }
 

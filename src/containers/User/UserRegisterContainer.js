@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
-import {Form} from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import TextInputs from "../../components/TextInputs/TextInputs";
 import Buttons from "../../components/Buttons/Buttons";
 // API
@@ -16,7 +16,7 @@ const UserRegisterContainer = () => {
     })
 
     const handleUserInputChange = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setUserRegistrationInformation({
             ...userRegistrationInformation,
             [name]: value
@@ -28,7 +28,7 @@ const UserRegisterContainer = () => {
         e.preventDefault();
         const { name, email, password, username } = userRegistrationInformation;
         const result = await API.postRegister({ name, email, password, username });
-        if(result.status === 201) history.push('/user/login')
+        if (result.status === 201) history.push('/login')
     }
     return (
         <Form onSubmit={handleSubmit}>

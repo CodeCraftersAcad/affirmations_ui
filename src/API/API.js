@@ -33,6 +33,13 @@ const API = {
         } catch (err) {
             console.log(err);
         }
+    },
+    getAllQuotes: () => {
+        try {
+            return axios.get('/quotes')
+        } catch (err) {
+            console.log(err.message);
+        }
     }
 };
 

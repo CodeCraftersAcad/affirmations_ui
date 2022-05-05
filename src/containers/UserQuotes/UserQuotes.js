@@ -7,9 +7,10 @@ export default function UserQuotes() {
     useEffect(() => {
         data(params);
     }, [params])
+    console.log(quoteList);
     const data = async params => {
         try {
-            const res = await API.getUserQuotesById(params.userId);
+            const res = await API.getAllQuotes(params.userId);
             if (res && res.data.quotes) setQuoteList(res.data.quotes);
         } catch (err) {
             console.log(err);

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 // components
 import TextInputs from '../../components/TextInputs/TextInputs';
 import Buttons from '../../components/Buttons/Buttons';
