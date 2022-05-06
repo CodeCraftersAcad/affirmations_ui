@@ -34,9 +34,10 @@ const API = {
             console.log(err);
         }
     },
-    getAllQuotes: () => {
+    getAllQuotes: async () => {
         try {
-            return axios.get('/quotes')
+            let {data} = await axios.get('/quotes'); // Destructuring the data take {} of data and there is mor information
+            console.table(data)
         } catch (err) {
             console.log(err.message);
         }
