@@ -36,8 +36,8 @@ const API = {
     },
     getAllQuotes: async () => {
         try {
-            let {data} = await axios.get('/quotes'); // Destructuring the data take {} of data and there is mor information
-            console.table(data)
+            let { data } = await axios.get('/quotes'); // Destructuring the data take {} of data and there is mor information
+            return data
         } catch (err) {
             console.log(err.message);
         }
