@@ -1,0 +1,27 @@
+.QuoteItem .card {
+    border-radius: 20px;
+    display: flex;
+    min-height: 425px !important;
+    justify-content: flex-end;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    color: #263238;
+    -webkit-box-shadow: -4px 10px 16px -5px rgba(38, 50, 56, 0.35);
+    box-shadow: -4px 10px 16px -5px rgba(38, 50, 56, 0.35);
+}
+
+.quoteText {
+    font-size: 30px;
+    font-weight: 800;
+    opacity: 0.85;
+    line-height: 35px;
+}
+
+.quoteAuthor,
+.quoteDate {
+    margin-bottom: 0;
+}
+
+.quoteActivity {
+    margin-top: 20px;
+}

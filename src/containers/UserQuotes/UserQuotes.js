@@ -19,7 +19,7 @@ export default function UserQuotes() {
     };
 
     return (
-        <div className="p-2">
+        <div className="px-3 row">
             {/* <AddQuotes /> */}
             <>
                 {quoteList.map(quote => (<QuoteItem key={quote._id} quote={quote} />
